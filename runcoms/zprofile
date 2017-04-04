@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='gvim'
 export PAGER='less'
 
 #
@@ -28,6 +28,12 @@ export PAGER='less'
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
+
+#
+# TERM
+#
+#export TERM='rxvt-unicode-256color'
+export TERM='xterm-256color'
 
 #
 # Paths
@@ -43,6 +49,8 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/bin
+  $(gem2.2 environment gemdir)/bin
   /usr/local/{bin,sbin}
   $path
 )
