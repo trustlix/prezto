@@ -13,10 +13,12 @@ fi
 # Customize to your needs...
 alias ack="ack-grep"
 alias ssh="TERM=xterm-256color ssh"
+alias ssh-ifood="TERM=xterm-256color ssh -l alex.zanetti"
 
 # OPAM configuration
 . /home/trustlix/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
+#NVM
 export NVM_DIR="/home/trustlix/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -32,3 +34,18 @@ fi
 
 # Command completion for k8s
 source <(kubectl completion zsh)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Command completion for aws cli
+source '/home/trustlix/.local/bin/aws_zsh_completer.sh'
+
+## Rbenv
+#eval "$(rbenv init -)"
+
+# Chef config
+eval "$(chef shell-init zsh)"
+
+export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+
+export CLOUDSDK_PYTHON=$(which python2)
